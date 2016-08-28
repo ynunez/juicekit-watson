@@ -1,0 +1,32 @@
+{
+  "name": "juicekit/watson",
+  "version": "1.0.0",
+  "description": "A PHP implementation of IBM's Watson REST API",
+  "type": "library",
+  "keywords": [
+    "watson", "ibm", "visual recognition", "juicekit"
+  ],
+  "autoload": {
+    "psr-4": {
+      "JuiceKit\\Watson\\": "src/Watson"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JuiceKit\\Test\\Watson\\": "tests/src/Watson"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.5.*"
+  },
+  "license": "Apache",
+  "authors": [
+    {
+      "name": "Yoel Nunez",
+      "email": "yoel@nunez.guru"
+    }
+  ]
+}
