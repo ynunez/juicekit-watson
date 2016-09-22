@@ -1,5 +1,7 @@
 ## JuiceKit Watson
 
+[![Build Status](https://travis-ci.org/juicekit/juicekit-watson.svg?branch=master)](https://travis-ci.org/juicekit/juicekit-watson)
+
 JuiceKit Watson is a PHP implementation of IBM's Watson REST API.
 
 > **Note:** Currently, only the VisualRecognition API is supported, other APIs will be supported in the future. For more information on available Watson APIs visit http://www.ibm.com/watson/developercloud/
