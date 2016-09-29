@@ -4,7 +4,13 @@ php:
   - '7.0'
   - hhvm
   - nightly
-  
+
+before_script:
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev
+
 script:
-  - composer install --dev
   - phpunit --coverage-text
+
+after_script:
+  - php vendor/bin/codacycoverage clover clover.xml

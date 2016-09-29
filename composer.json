@@ -20,7 +20,8 @@
     "guzzlehttp/guzzle": "~6.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "5.5.*"
+    "phpunit/phpunit": "5.5.*",
+    "codacy/coverage": "dev-master"
   },
   "license": "Apache",
   "authors": [
