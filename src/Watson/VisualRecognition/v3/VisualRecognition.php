@@ -29,53 +29,45 @@ class VisualRecognition extends WatsonApi
     public function classify($data)
     {
         if ($this->isResourceStream($data)) {
-            $response = $this->post('/visual-recognition/api/v3/classify', [
+            return $this->post('/visual-recognition/api/v3/classify', [
                 'body' => $data
-            ]);
-        } else {
-            $response = $this->get('/visual-recognition/api/v3/classify', [
-                'query' => [
-                    'url' => $data
-                ]
             ]);
         }
 
-        return $response;
+        return $this->get('/visual-recognition/api/v3/classify', [
+            'query' => [
+                'url' => $data
+            ]
+        ]);
     }
 
     public function detectFaces($data)
     {
 
         if ($this->isResourceStream($data)) {
-            $response = $this->post('/visual-recognition/api/v3/detect_faces', [
+            return $this->post('/visual-recognition/api/v3/detect_faces', [
                 'body' => $data
             ]);
-        } else {
-            $response = $this->get('/visual-recognition/api/v3/detect_faces', [
-                'query' => [
-                    'url' => $data
-                ]
-            ]);
         }
-
-        return $response;
+        return $this->get('/visual-recognition/api/v3/detect_faces', [
+            'query' => [
+                'url' => $data
+            ]
+        ]);
     }
 
     public function recognizeText($data)
     {
         if ($this->isResourceStream($data)) {
-            $response = $this->post('/visual-recognition/api/v3/recognize_text', [
+            return $this->post('/visual-recognition/api/v3/recognize_text', [
                 'body' => $data
             ]);
-        } else {
-            $response = $this->get('/visual-recognition/api/v3/recognize_text', [
-                'query' => [
-                    'url' => $data
-                ]
-            ]);
         }
-
-        return $response;
+        return $this->get('/visual-recognition/api/v3/recognize_text', [
+            'query' => [
+                'url' => $data
+            ]
+        ]);
     }
 
     public function createClassifier()

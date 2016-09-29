@@ -81,24 +81,24 @@ abstract class WatsonApi
     }
 
 
-    protected function get($path, array $options = array())
+    protected function get($path, array $options = [])
     {
         return $this->buildRequest('GET', $path, $options);
     }
 
-    protected function post($path, $options = array())
+    protected function post($path, array $options = [])
     {
         return $this->buildRequest('POST', $path, $options);
     }
 
-    private function buildRequest($method, $path, array $options = array())
+    private function buildRequest($method, $path, array $options = [])
     {
-        $opts = array(
-            'query' => array_merge(array(
+        $opts = [
+            'query' => array_merge([
                 'api_key' => $this->apiKey,
                 'version' => $this->version
-            ), isset($options['query']) ? $options['query'] : array())
-        );
+            ], isset($options['query']) ? $options['query'] : [])
+        ];
 
         $response = $this->client->request($method, $path, array_merge($options, $opts));
 
