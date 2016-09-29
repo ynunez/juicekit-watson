@@ -10,7 +10,7 @@ before_script:
   - php composer.phar install --dev
 
 script:
-  - phpunit --coverage-text
+  - phpunit --coverage-clover clover.coverage
 
 after_script:
-  - php vendor/bin/codacycoverage clover clover.xml
+  - php vendor/bin/codacycoverage clover clover.coverage
