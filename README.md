@@ -1,6 +1,8 @@
 ## JuiceKit Watson
 
 [![Build Status](https://travis-ci.org/juicekit/juicekit-watson.svg?branch=master)](https://travis-ci.org/juicekit/juicekit-watson)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4d72ef87ba943f7a1426247e58a68a8)](https://www.codacy.com/app/yoel/juicekit-watson?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=juicekit/juicekit-watson&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/b4d72ef87ba943f7a1426247e58a68a8)](https://www.codacy.com/app/yoel/juicekit-watson?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=juicekit/juicekit-watson&amp;utm_campaign=Badge_Coverage)
 
 JuiceKit Watson is a PHP implementation of IBM's Watson REST API.
 
