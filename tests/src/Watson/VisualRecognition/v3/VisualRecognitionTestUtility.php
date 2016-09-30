@@ -20,14 +20,11 @@ namespace JuiceKit\Test\Watson\VisualRecognition\v3;
 
 
 use GuzzleHttp\Psr7\Response;
-use JuiceKit\Test\Watson\MockHttpClient;
+use JuiceKit\Test\Watson\Mock\HttpClient as MockHttpClient;
 use JuiceKit\Watson\VisualRecognition\v3\VisualRecognition;
 
 trait VisualRecognitionTestUtility
 {
-    private static $API_KEY = 'xyz-abc';
-    private static $VERSION = '123987';
-
     /** @var  MockHttpClient */
     private $client;
 
@@ -38,14 +35,14 @@ trait VisualRecognitionTestUtility
     {
         $this->client = new MockHttpClient();
 
-        $this->api = new VisualRecognition(self::$API_KEY, self::$VERSION);
+        $this->api = new VisualRecognition('xyz-abc', '123987');
         $this->api->setHttpClient($this->client);
     }
 
-    public function responseGetClassifier($id = 'string')
+    public function responseGetClassifier($classifierId = 'string')
     {
         return new Response(200, [], json_encode([
-            'classifier_id' => $id,
+            'classifier_id' => $classifierId,
             'name' => 'string',
             'owner' => 'string',
             'status' => 'string',
@@ -107,6 +104,161 @@ trait VisualRecognitionTestUtility
             'images' => 0,
             'status' => 'string',
             'capacity' => 'string',
+        ]);
+
+        return new Response(200, [], $response);
+    }
+
+    private function responseFaceRecognitionWithUrl()
+    {
+        $response = json_encode([
+            "images" => [
+                [
+                    "faces" => [
+                        [
+                            "age" => [
+                                "max" => 64,
+                                "min" => 55,
+                                "score" => 0.447907
+                            ],
+                            "face_location" => [
+                                "height" => 681,
+                                "left" => 399,
+                                "top" => 387,
+                                "width" => 656
+                            ],
+                            "gender" => [
+                                "gender" => "MALE",
+                                "score" => 0.622459
+                            ],
+                            "identity" => [
+                                "name" => "John Doe",
+                                "score" => 0.622459,
+                                "type_hierarchy" => "/people/john doe"
+                            ]
+                        ]
+                    ],
+                    "resolved_url" => "https://yourhost.com/path/to/image.jpg",
+                    "source_url" => "https://yourhost.com/path/to/image.jpg"
+                ]
+            ],
+            "images_processed" => 1
+        ]);
+
+        return new Response(200, [], $response);
+    }
+
+    private function responseFaceRecognitionWithFile()
+    {
+        $response = json_encode([
+            "images" => [
+                [
+                    "faces" => [
+                        [
+                            "age" => [
+                                "max" => 64,
+                                "min" => 55,
+                                "score" => 0.447907
+                            ],
+                            "face_location" => [
+                                "height" => 681,
+                                "left" => 399,
+                                "top" => 387,
+                                "width" => 656
+                            ],
+                            "gender" => [
+                                "gender" => "MALE",
+                                "score" => 0.622459
+                            ],
+                            "identity" => [
+                                "name" => "John Doe",
+                                "score" => 0.622459,
+                                "type_hierarchy" => "/people/john doe"
+                            ]
+                        ]
+                    ],
+                    "image" => "image-file.jpg",
+                ]
+            ],
+            "images_processed" => 1
+        ]);
+
+        return new Response(200, [], $response);
+    }
+
+    private function responseRecognizeTextWithUrl()
+    {
+        $response = json_encode([
+            "images" => [
+                [
+                    "resolved_url" => "https://yourhost.com/path/to/image.jpg",
+                    "source_url" => "https://yourhost.com/path/to/image.jpg",
+                    "text" => "lormem ipsum",
+                    "words" => [
+                        [
+                            "line_number" => 0,
+                            "location" => [
+                                "height" => 195,
+                                "left" => 98,
+                                "top" => 325,
+                                "width" => 487
+                            ],
+                            "score" => 0.998773,
+                            "word" => "lorem"
+                        ],
+                        [
+                            "line_number" => 0,
+                            "location" => [
+                                "height" => 162,
+                                "left" => 617,
+                                "top" => 358,
+                                "width" => 357
+                            ],
+                            "score" => 0.992393,
+                            "word" => "ipsum"
+                        ]
+                    ]
+                ]
+            ],
+            "images_processed" => 1
+        ]);
+
+        return new Response(200, [], $response);
+    }
+
+    private function responseRecognizeTextWithFile()
+    {
+        $response = json_encode([
+            "images" => [
+                [
+                    "text" => "lormem ipsum",
+                    "words" => [
+                        [
+                            "line_number" => 0,
+                            "location" => [
+                                "height" => 195,
+                                "left" => 98,
+                                "top" => 325,
+                                "width" => 487
+                            ],
+                            "score" => 0.998773,
+                            "word" => "lorem"
+                        ],
+                        [
+                            "line_number" => 0,
+                            "location" => [
+                                "height" => 162,
+                                "left" => 617,
+                                "top" => 358,
+                                "width" => 357
+                            ],
+                            "score" => 0.992393,
+                            "word" => "ipsum"
+                        ]
+                    ]
+                ]
+            ],
+            "images_processed" => 1
         ]);
 
         return new Response(200, [], $response);

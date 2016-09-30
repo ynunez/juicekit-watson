@@ -16,8 +16,20 @@
  -->
 <phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
+        <testsuite name="Watson API">
+            <file>tests/src/Watson/WatsonApiTest.php</file>
+        </testsuite>
         <testsuite name="Visual Recognition">
             <directory>tests/src/Watson/VisualRecognition</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/Watson/</directory>
+        </whitelist>
+        <blacklist>
+            <directory suffix=".php">./vendor</directory>
+        </blacklist>
+    </filter>
 </phpunit>

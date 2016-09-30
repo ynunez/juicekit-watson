@@ -16,7 +16,7 @@
  *
  */
 
-namespace JuiceKit\Test\Watson;
+namespace JuiceKit\Test\Watson\Mock;
 
 
 use GuzzleHttp\ClientInterface;
@@ -26,7 +26,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
-class MockHttpClient implements ClientInterface
+class HttpClient implements ClientInterface
 {
     private $requests = [];
     private $responses = [];
@@ -35,7 +35,7 @@ class MockHttpClient implements ClientInterface
      * MockHttpClient constructor.
      * @param array $responses
      */
-    public function __construct(array $responses = array())
+    public function __construct(array $responses = [])
     {
         $this->responses = $responses;
     }
