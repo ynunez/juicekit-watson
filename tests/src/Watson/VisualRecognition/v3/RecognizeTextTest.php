@@ -48,9 +48,9 @@ class RecognizeTextTest extends TestCase
         $mockResponse = $this->responseRecognizeTextWithFile();
         $this->client->pushResponse($mockResponse);
 
-        $mockImageFileResource = 'image resource fopen($FILE_NAME, MODE)';
+        $mockImageResource = 'image resource fopen($FILE_NAME, MODE)';
 
-        $stream = Psr7\stream_for($mockImageFileResource);
+        $stream = Psr7\stream_for($mockImageResource);
 
         $this->api->recognizeText($stream);
 
