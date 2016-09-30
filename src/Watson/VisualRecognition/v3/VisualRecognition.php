@@ -95,19 +95,19 @@ class VisualRecognition extends WatsonApi
         return $response['collections'];
     }
 
-    public function getClassifier($classifier_id)
+    public function getClassifier($classifierId)
     {
-        return $this->get('/visual-recognition/api/v3/classifiers/' . $classifier_id);
+        return $this->get('/visual-recognition/api/v3/classifiers/' . $classifierId);
     }
 
-    public function getCollection($collection_id)
+    public function getCollection($collectionId)
     {
-        return $this->get('/visual-recognition/api/v3/collections/' . $collection_id);
+        return $this->get('/visual-recognition/api/v3/collections/' . $collectionId);
     }
 
-    public function listCollectionImages($collection_id)
+    public function listCollectionImages($collectionId)
     {
-        return $this->get('/visual-recognition/api/v3/collections/' . $collection_id . '/images');
+        return $this->get('/visual-recognition/api/v3/collections/' . $collectionId . '/images');
     }
 
     public function deleteClassifier()
@@ -115,13 +115,13 @@ class VisualRecognition extends WatsonApi
         throw new \Exception('Unimplemented method');
     }
 
-    public function getCollectionImageDetails($collection_id, $image_id)
+    public function getCollectionImageDetails($collectionId, $imageId)
     {
-        return $this->get('/visual-recognition/api/v3/collections/' . $collection_id . '/images/' . $image_id);
+        return $this->get('/visual-recognition/api/v3/collections/' . $collectionId . '/images/' . $imageId);
     }
 
-    public function getCollectionImageMetadata($collection_id, $image_id)
+    public function getCollectionImageMetadata($collectionId, $imageId)
     {
-        return $this->get('/visual-recognition/api/v3/collections/' . $collection_id . '/images/' . $image_id . '/metadata');
+        return $this->get('/visual-recognition/api/v3/collections/' . $collectionId . '/images/' . $imageId . '/metadata');
     }
 }

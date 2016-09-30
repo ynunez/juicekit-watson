@@ -64,12 +64,12 @@ abstract class WatsonApi
     public function setHttpClient(ClientInterface $client = null)
     {
         if ($client == null) {
-            $this->client = new Client(array(
+            return $this->client = new Client([
                 'base_uri' => self::URL,
-            ));
-        } else {
-            $this->client = $client;
+            ]);
         }
+
+        $this->client = $client;
     }
 
     /**
